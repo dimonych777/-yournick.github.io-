@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Поиск минимума</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    input {
+      width: 100px;
+      margin: 5px;
+    }
+    button {
+      margin-top: 10px;
+    }
+    #result {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+  <h2>Найти минимальное число</h2>
+
+  <label for="num1">Число 1:</label><br>
+  <input type="number" id="num1"><br>
+
+  <label for="num2">Число 2:</label><br>
+  <input type="number" id="num2"><br>
+
+  <button onclick="findMin()">Найти минимум</button>
+
+  <div id="result"></div>
+
+  <script>
+    // Функция для поиска минимума
+    function min(a, b) {
+      return a < b ? a : b;
+    }
+
+    // Обработчик кнопки
+    function findMin() {
+      let num1 = parseFloat(document.getElementById("num1").value);
+      let num2 = parseFloat(document.getElementById("num2").value);
+
+      if (isNaN(num1) || isNaN(num2)) {
+        document.getElementById("result").textContent = "Пожалуйста, введите оба числа.";
+        return;
+      }
+
+      let result = min(num1, num2);
+      document.getElementById("result").textContent = "Минимальное число: " + result;
+    }
+  </script>
+
+</body>
+</html>
